@@ -1,0 +1,94 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
+{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;\f1\fnil\fcharset0 Monaco;\f2\fswiss\fcharset0 Helvetica;
+\f3\froman\fcharset0 TimesNewRomanPSMT;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red255\green255\blue255;\red83\green83\blue83;
+\red255\green255\blue255;\red69\green69\blue69;\red79\green79\blue79;}
+{\*\expandedcolortbl;;\csgray\c0;\csgray\c100000;\cssrgb\c40000\c40000\c40000;
+\cssrgb\c100000\c100000\c100000;\csgenericrgb\c27059\c27059\c27059;\csgenericrgb\c30980\c30980\c30980;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs22 \cf2 \cb3 \CocoaLigature0  \
+sudo apt-get update\
+\pard\pardeftab720\qj\partightenfactor0
+
+\f1\fs24\fsmilli12375 \cf4 \cb5 \expnd0\expndtw0\kerning0
+\CocoaLigature1 sudo apt-get update && apt-get upgrade -y
+\f0\fs22 \cf2 \cb3 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf2 sudo apt-get install apache2 php\
+sudo 
+\f1\fs24\fsmilli12375 \cf4 \cb5 \expnd0\expndtw0\kerning0
+\CocoaLigature1 apt-get install -y ssmtp mailutils mpack\
+\pard\pardeftab708\ri-386\qj\partightenfactor0
+
+\f2\fs21 \cf6 \cb1 apt-get install i2c-tools
+\f0\fs22 \cf2 \cb3 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf2 sudo chmod g+w -R /var/www/ \
+ls -al /var/www/html\
+sudo adduser www-data gpio\
+sudo adduser www-data users\
+sudo adduser www-data i2c
+\f2\fs21 \cf6 \cb1 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \
+\pard\pardeftab708\ri-386\qj\partightenfactor0
+
+\b \cf6 sudo adduser pi i2c\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\b0\fs22 \cf2 \cb3 \kerning1\expnd0\expndtw0 \CocoaLigature0 sudo raspi-config \
+\'ab\'a0activate i2c\'a0\'bb
+\f2\b\fs21 \cf6 \cb1 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \
+\pard\pardeftab708\ri-386\qj\partightenfactor0
+\cf7 sudo reboot
+\f3\b0 \'a0
+\f0\fs22 \cf2 \cb3 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf2 ls -l dev/i2c*\
+i2cdetect -y 1\
+\
+\
+\
+chmod -R 777 /var/www/html/projet/\
+\
+Upload : \
+\
+scp -r /Users/alexismassol/OneDrive/Documents/ESILV/S08/Embedded\\ Systems\\ \\ architecture\\ \\&\\ programming/Lab\\ 5-8-9/projet pi@192.168.2.7:/var/www/html/projet\
+\
+\
+Save :\
+\
+ scp -r pi@192.168.2.7:/var/www/html/projet /Users/alexismassol/OneDrive/Documents/ESILV/S08/Embedded\\ Systems\\ \\ architecture\\ \\&\\ programming/Lab\\ 5-8-9/projet \
+\
+\
+- I2C :\
+\
+gcc final.c -o final -lwiringPi\
+\
+https://www.pihomeserver.fr/2013/08/13/raspberry-pi-home-server-arduino-lier-les-deux-via-bus-i2c/\
+\
+http://www.gammon.com.au/images/ArduinoUno_R3_Pinouts.png\
+\
+https://docs.microsoft.com/en-us/windows/iot-core/media/pinmappingsrpi/rp2_pinout.png\
+\
+\
+- Email : \
+\
+Link : https://www.pihomeserver.fr/2015/08/13/envoyer-un-email-depuis-votre-raspberry-pi/\
+\
+ sudo nano /etc/ssmtp/ssmtp.conf \
+\
+Add :\
+\
+mailhub=smtp.gmail.com:587\
+AuthUser=. . .@gmail.com\
+AuthPass=. . . \
+useSTARTTLS=YES\
+useTLS=YES\
+\
+Test : \
+\
+ echo "\'a0Hello" | mail -s "This is the subject line" your email\
+}
